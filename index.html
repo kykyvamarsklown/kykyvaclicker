@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Кликер</title>
+  <link rel="icon" href="img/mouse.png">
+  <style type="text/css">
+    #logo {
+      margin-top: -1%;
+      text-align: right;
+    }
+    button,button:focus {
+      border-radius: 0px;
+      border: 1px solid black;
+      transition: 0.7s;
+    }
+    button:hover {
+      opacity: 0.8;
+      transition: 0.7s;
+    }
+    #start1 {
+      background: linear-gradient(to top, yellow, blue);
+      border: 1px solid black;
+      border-radius: 7px;
+      box-shadow: 0px 0px 5px blue;
+    }
+    #start2 {
+      background: linear-gradient(to bottom, yellow, blue);
+      border: 1px solid black;
+      border-radius: 7px;
+      box-shadow: 0px 0px 5px blue;
+    }
+    * {
+      font-family: monospace;
+    }
+    fieldset {
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px;
+    }
+    legend {
+      font-weight: bolder;
+      background-color: white;
+      box-shadow: 0px 0px 5px;
+      border-radius: 5px;
+    }
+    #ach,#ach1 {
+      background-color: rgba(205, 205, 0,1);
+      margin: 0px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      display: none;
+      border-radius: 5px;
+    }
+    #allach {
+      display: none;
+    }
+    #ach1bl,#ach2bl {
+      background-color: gray;
+      border-radius: 5px;
+      height: 120px;
+      width: 120px;
+      padding: 7px;
+      margin: 7px;
+    }
+    #ach1text,#ach2text {
+      display: none;
+    }
+    #logob,#logo2 {
+      display: none;
+    }
+    #logo button {
+      background-color: white !important;
+      border: 0px !important;
+    }
+    #logobutton {
+      background: radial-gradient(circle at 50% 50%, hsl(210,55%,85%), hsl(210,55%,55%));
+      box-shadow: 0px 0px 5px hsl(210,55%,85%);
+    }
+  </style>
+</head>
+<body>
+  <fieldset>
+    <legend>хвалитель</legend>
+    <div id="logo">
+      <p id="logo2">made by kukuva</p>
+      <button onclick="logoc()" id="logobut">made by kukuva</button>
+    </div>
+      <div id="logob">
+        <fieldset>
+          <legend>Лого</legend>
+          <h4 id="logoclicked">нажато на лого : 0 раз</h4>
+        <button onclick="logoplus()" id="logobutton">made by kukuva</button>
+       </fieldset>
+        
+      </div>
+      
+      <h3 id="score">марсель похвален : 0 раз</h3>
+      <button onclick="plusauto()" id="start">похвалить марселя</button>
+      <ul>
+        <li><h4 id="marselhval">марсель реально похвален : 0 раз</h4></li>
+        <li><button onclick="click2()">реально похвалить марселя</button></li>
+      </ul>
+      <hr>
+      <h2 id="score1">кукува лох 0 раз</h2>
+      <button onclick="click1()" id="start1">обозвать кукуву</button>
+      <ul>
+        <li><h4 id="kukuvaobz">кукува реально лох : 0 раз</h4></li>
+        <li><button onclick="click3()" id="start2">реально обозвать кукуву</button></li>
+      </ul>
+      <button onclick="achopen()">достижения</button>
+      <div id="allach">
+        <p><div id="ach1bl">
+          <h5>Истинный ценитель</h5>
+          <p id="ach1text">похвалить кукуву 100 раз</p>
+        </div>
+        <div id="ach2bl">
+          <h5>еще одна кнопка?..</h5>
+          <p id="ach2text">найти кнопку с лого</p>
+        </div></p>
+      </div>
+      <div id="ach">
+        <center>
+          <p>Истинный ценитель</p>
+        </center>
+      </div>
+      <div id="ach1">
+        <center>
+          <p>еще одна кнопка?..</p>
+        </center>
+      </div>
+
+    </body>
+  </fieldset>
+  <br>
+  <hr>
+  <h1>ь/мягкий знак</h1>
+  
+  <script>
+    var score = 0;
+    var bonus = 0;
+    var logosc = 0;
+    var score1 = 0;
+    var score2 = 0;
+    var score3 = 0;
+    function plusauto () {
+      score = score + 1;
+      document.getElementById("score").innerHTML = "марсель лох : " + score + " раз";
+      document.getElementById("start").innerHTML = "обозвать марселя"
+    }
+
+    function logoplus() {
+      logosc = logosc + 1
+      document.getElementById("logoclicked").innerHTML = "нажато на лого : " + logosc + " раз";
+    }
+
+    function logoc() {
+        document.getElementById('logob').style.display = 'block';
+        document.getElementById('ach1').style.display = 'block';
+        document.getElementById('ach2bl').style.backgroundColor = 'darkgreen';
+        document.getElementById('ach2text').style.display = 'block';
+        document.getElementById('logobut').style.display = 'none';
+        document.getElementById('logo2').style.display = 'block';
+        setTimeout("document.getElementById('ach1').style.display = 'none';", 2200);
+
+    }
+
+    function achopen() {
+        document.getElementById('allach').style.display = 'block'   
+    }
+
+    function click1 () {
+      score1 = score1 + 1 + bonus;
+      document.getElementById("score1").innerHTML = "кукува похвален : " + score1 + " раз";
+      document.getElementById("start1").innerHTML = "похвалить кукуву"
+      check()
+    }
+
+    function click2 () {
+      score2 = score2 + 1;
+      document.getElementById("marselhval").innerHTML = "марсель реально похвален : " + score2 + " раз";
+    }
+
+    function click3 () {
+      score3 = score3 + 1;
+      document.getElementById("kukuvaobz").innerHTML = "кукува реально лох : " + score3 + " раз";
+    }
+
+    function check() {
+      if (score1 == 10) {
+        document.getElementById('ach').style.display = 'block';
+        document.getElementById('ach1bl').style.backgroundColor = 'darkgreen';
+        document.getElementById('ach1text').style.display = 'block';
+        setTimeout("document.getElementById('ach').style.display = 'none';", 2200);
+      }
+    }
+  </script>
+</body>
+</html>
